@@ -1,0 +1,20 @@
+
+title: nvs.schreib.at
+email: juri@schreib.at
+description: >
+  Simple Management Tool for Writing Doucmentions in Markdown
+baseurl: ""
+url: "http://nvs.schreib.at"
+twitter_username: bujuhu
+github_username:  bujuhu
+
+# Build settings
+markdown: kramdown
+
+#Protcol Variables
+name: Juri Schreib
+class: 5CHIF
+reportTitle: Laborbericht - NVS1 - 5CHIF
+
+exclude:
+  - node_modules

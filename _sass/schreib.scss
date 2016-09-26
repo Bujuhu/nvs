@@ -1,0 +1,38 @@
+$backdrop:  #21141b;
+$behind: #3D3E53;
+$primary: #FDDFAD;
+$assertive: #f7891f;
+
+body {
+  background-color: $behind;
+  color: $primary;
+}
+.s-header {
+        padding: .5rem .5rem .8rem .5rem;
+        font-size: 1.5rem;
+        background-color: $backdrop;
+        font-family: 'Roboto Slab', serif;
+        letter-spacing: 4px;
+    }
+
+.s-title {
+  color: $assertive;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.4rem;
+  text-shadow: 0.05em 0.05em  #e3300c;
+}
+.s-link {
+    color: $assertive;
+    text-decoration: none;
+    margin: 0.5em;
+}
+
+.s-link:hover {
+    text-shadow: 0.05em 0.05em #9e214c;
+}
+
+@media print {
+  .s-header{
+    display: none;
+  }
+}

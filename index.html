@@ -1,0 +1,17 @@
+---
+layout: site
+title: Home
+---
+<h2 class="s-title">Reports</h2>
+  <ul>
+    {% for page in site.pages %}
+      {% if page.layout == 'report' %}
+      <div class="coco-item__header">
+        {{ page.date }} <a href="{{ page.url }}" class="s-link">{{ page.title }}</a>
+      </div>
+      <!--ul>
+        {% include attachments.html path=page.url %}
+      </ul-->
+      {% endif %}
+    {% endfor %}
+  </ul>
