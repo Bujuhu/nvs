@@ -8,6 +8,9 @@ body {
   color: $primary;
 }
 .s-header {
+        display: flex;
+        justify-content: space-between;
+
         padding: .5rem .5rem .8rem .5rem;
         font-size: 1.5rem;
         background-color: $backdrop;
@@ -25,6 +28,9 @@ body {
     color: $assertive;
     text-decoration: none;
     margin: 0.5em;
+}
+.s-nav {
+  text-align: right;
 }
 
 .s-link:hover {
