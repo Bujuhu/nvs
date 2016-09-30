@@ -1,0 +1,29 @@
+#!/bin/bash
+
+reportsDirectory=$HOME/Sync/Projects/nvs/reports
+
+cd $reportsDirectory || exit
+
+reports=(*/)
+
+#Generate a Pdf for the latest Report
+function generatePdf() {
+  lastReportDir=${reports[-1]}
+  lastReport=${lastReportDir: 0: ${#lastReportDir}-1 }
+
+  wkhtmltopdf --header-line --footer-line --footer-right "Seite [page] von [toPage]" --print-media-type http://localhost:4000/reports/$lastReport $lastReport/$lastReport.pdf
+}
+
+#Send the latest Report to the instructor
+function send() {
+  return
+}
+
+case $1 in
+  'gen')
+    generatePdf;;
+  'send')
+    send;;
+  *)
+  printf "Usage: \n backup: Saves currently installed packages into %s \n restore: installs saved packages from %s" "$FILE" "$FILE"
+esac
