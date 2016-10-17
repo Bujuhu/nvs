@@ -4,6 +4,7 @@ layout: report
 date: 2016-09-20
 task: Sicherheitsrisiken für Laptops finden, bewerten und Lösungsansätze vorschlagen.
 description: Erfüllung der Aufgabenstellung
+subject: nvs
 ---
 # Sicherheitsrisiken eines Laptops
 

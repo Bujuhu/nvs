@@ -14,10 +14,14 @@ markdown: kramdown
 #Protcol Variables
 name: Juri Schreib
 class: 5CHIF
-reportTitle: Laborbericht - NVS1 - 5CHIF
+reportTitle: Laborbericht
 
 exclude:
   - node_modules
   - CNAME
   - LICENSE
   - nvs
+
+subjects:
+  - nvs
+  - dbi

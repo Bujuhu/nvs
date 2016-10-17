@@ -2,16 +2,17 @@
 layout: site
 title: Home
 ---
-<h2 class="s-title">Reports</h2>
-  <ul>
+{% for subject in site.subjects %}
+<div class="subject-list">
+  <h2 class="s-title subject-title">{{ subject | upcase }}</h2>
+  <div>
     {% for page in site.pages %}
-      {% if page.layout == 'report' %}
+      {% if page.subject == subject %}
       <div class="coco-item__header">
         {{ page.date }} <a href="{{ page.url }}" class="s-link">{{ page.title }}</a>
       </div>
-      <!--ul>
-        {% include attachments.html path=page.url %}
-      </ul-->
       {% endif %}
     {% endfor %}
-  </ul>
+  </div>
+</div>
+{% endfor %}

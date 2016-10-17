@@ -2,7 +2,7 @@
 <div class="report-header-row">
   <div class="report-item">
     <h1 class="report-title">
-      {{ site.reportTitle }}
+      {{ site.reportTitle }} - {{ page.subject | upcase }} - {{ site.class }}
     </h1>
     </div>
 </div>
@@ -14,14 +14,24 @@
       <b>Datum:</b> {{ page.date }}
     </div>
   </div>
+  {% if page.taskHref %}
+  <div class="report-header-row">
+    <div class="report-item report-description">
+      <b>HW-Beschreibung:</b>  <a href="{{ page.taskHref }}">{{ page.task }}</a>
+    </div>
+  </div>
+  {% elsif page.task %}
   <div class="report-header-row">
     <div class="report-item">
       <b>HW-Beschreibung:</b> {{ page.task }}
     </div>
   </div>
+  {% endif %}
+  {% if page.description %}
   <div class="report-header-row">
     <div class="report-item report-description">
       <b>Ziel:</b>  {{ page.description }}
     </div>
   </div>
+  {% endif %}
 </div>
