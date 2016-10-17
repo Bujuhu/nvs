@@ -33,11 +33,11 @@ function init() {
   subject: nvs
   ---" > index.md
 }
-  echo  "$reportsDirectory succsessfully initialized" 
+  echo  "$reportsDirectory succsessfully initialized"
 
 #Generate a Pdf for the latest Report
 function generatePdf() {
-  wkhtmltopdf --header-line --footer-line --footer-right "Seite [page] von [toPage]" --print-media-type http://localhost:4000/reports/$report $report/$report.pdf
+  wkhtmltopdf --header-line --footer-line --footer-right "Seite [page] von [toPage]" --print-media-type http://localhost:4000/NVS/$report $report/$report.pdf
 }
 
 #Send the latest Report to the instructor
