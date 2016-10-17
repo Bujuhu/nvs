@@ -22,7 +22,7 @@ h1 {
   margin-bottom: .5rem;
 
   padding-left:6.1em;
-  text-indent: -6.1em;
+  text-indent: -6.12em;
 }
 .coco-item__header__title {
   font-size: 1.1rem;
@@ -105,6 +105,7 @@ h1 {
 
   background-color: #eee;
   border-radius: 5px;
+  white-space: pre-wrap;
 }
 .report-attachments-wrapper{
   margin: 0 auto;
@@ -124,5 +125,10 @@ h1 {
 .report-attachments ul {
   list-style-type: none;
   padding-left: 0;
+}
 
+@media print {
+  .report-attachments-wrapper {
+    display: none;
+  }
 }
