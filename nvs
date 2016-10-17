@@ -1,25 +1,54 @@
 #!/bin/bash
 
-reportsDirectory=$HOME/Sync/Projects/nvs/reports
+reportsDirectory=$HOME/Sync/Projects/nvs/NVS
+
+#Email settings
+#Either change these default values to your Smtp Server or source them from another script using the source command.
+smtpSender="johnsmith@mail.example (John Smith)"
+smtpUser="johnsmith@mail.example"
+smtpServer="smtp.mail.example:587"
+recipient="janesmith@mail.example"
+smtpPassword="password"
+
+#Source your custom Variables for the SMTP Server from another Script
+source nvs.local
 
 cd $reportsDirectory || exit
 
 reports=(*/)
+reportDir=${reports[-1]}
+report=${reportDir: 0: ${#reportDir}-1 }
+
+#Generate a new Report
+function init() {
+  reportsDirectory="5CHIF_$(date "+%Y%m%d")_Schreib"
+  echo $reportsDirectory
+  cd $reportsDirectory || exit
+  echo "---
+  title:
+  layout: report
+  date: $(date -I)
+  task:
+  description: Erfüllung der Aufgabenstellung
+  subject: nvs
+  ---" > index.md
+}
+  echo  "$reportsDirectory succsessfully initialized" 
 
 #Generate a Pdf for the latest Report
 function generatePdf() {
-  lastReportDir=${reports[-1]}
-  lastReport=${lastReportDir: 0: ${#lastReportDir}-1 }
-
-  wkhtmltopdf --header-line --footer-line --footer-right "Seite [page] von [toPage]" --print-media-type http://localhost:4000/reports/$lastReport $lastReport/$lastReport.pdf
+  wkhtmltopdf --header-line --footer-line --footer-right "Seite [page] von [toPage]" --print-media-type http://localhost:4000/reports/$report $report/$report.pdf
 }
 
 #Send the latest Report to the instructor
 function send() {
+  echo "" | mail -s "$report" -a $report/$report.pdf -r "$smtpSender" -S smtp="$smtpServer" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$smtpUser" -S smtp-auth-password="$smtpPassword" -S ssl-verify=ignore $recipient
   return
 }
 
 case $1 in
+  'init')
+    init;;
   'gen')
     generatePdf;;
   'send')
