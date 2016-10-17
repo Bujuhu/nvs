@@ -9,6 +9,8 @@ h1 {
 }
 
 .coco-site {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -16,11 +18,17 @@ h1 {
   background-color: #21141b;
 }
 .coco-item__header {
-  padding: .5rem;
   font-size: 1.1rem;
+  margin-bottom: .5rem;
+
+  padding-left:6.1em;
+  text-indent: -6.1em;
 }
 .coco-item__header__title {
   font-size: 1.1rem;
+}
+.subject-list {
+  padding: .5rem;
 }
 
 //Report
@@ -90,4 +98,31 @@ h1 {
 //markdown
 .report img{
   max-width: 100%;
+}
+
+.highlight {
+  padding: 5px;
+
+  background-color: #eee;
+  border-radius: 5px;
+}
+.report-attachments-wrapper{
+  margin: 0 auto;
+  max-width: 26cm;
+  padding: .5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.report-attachments {
+  max-width: 13cm;
+
+  background-color: $behind;
+  border-radius: 5px;
+  padding: 5px;
+}
+.report-attachments ul {
+  list-style-type: none;
+  padding-left: 0;
+
 }

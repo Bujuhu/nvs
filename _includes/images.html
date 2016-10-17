@@ -1,6 +1,6 @@
 {% for file in site.static_files %}
   {% assign urlparts = file.path | split: "/" %}
-  {% if file.path contains include.path and file.extname != ".png" %}
+  {% if file.path contains include.path and file.extname == ".png" %}
     <li><a href="{{ site.baseurl }}{{ file.path }}" class="s-link">{{ urlparts.last }}</a></li>
   {% endif %}
 {% endfor %}

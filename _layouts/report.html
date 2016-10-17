@@ -10,3 +10,17 @@ layout: default
     {% include report-footer.html %}
   </div>
 </div>
+<div class="report-attachments-wrapper">
+  <div class="report-attachments">
+      <h3 class="s-title attachment-header"><i class="ion-link"></i> Anhänge</h3>
+      <ul>
+        {% include attachments.html path=page.url %}
+      </ul>
+  </div>
+  <div class="report-attachments">
+      <h3 class="s-title attachment-header"><i class="ion-images"></i> Bilder</h3>
+      <ul>
+        {% include images.html path=page.url %}
+      </ul>
+  </div>
+</div>
