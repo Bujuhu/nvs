@@ -1,0 +1,262 @@
+1 rows inserted.
+>>Query Run In:Query Result
+1 rows inserted.
+>>Query Run In:Query Result 1
+1 rows inserted.
+>>Query Run In:Query Result 2
+TRANSACTION_ID
+----------------
+04001E00DB240000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+04001E00DB240000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+04001E00DB240000
+
+committed.
+5 rows deleted.
+committed.
+no rows selected
+
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+09000A0042250000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+09000A0042250000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+09000A0042250000
+
+committed.
+no rows selected
+
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+07000A00BB240000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+07000A00BB240000
+
+committed.
+no rows selected
+
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+08000300F0250000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+08000300F0250000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+08000300F0250000
+
+1 rows inserted.
+TRANSACTION_ID
+----------------
+08000300F0250000
+
+committed.
+no rows selected
+
+
+1 rows inserted.
+committed.
+
+
+# ██████
+#      ██
+#  █████
+# ██
+# ███████
+
+ROWID CUSTOMER_ID FIRST_NAME              BALANCE
+----- ----------- -------------------- ----------
+AAAb2           1 Fritz                       300
+GAAEA
+AAFGu
+AAA
+
+AAAb2           5 Alex                       1000
+GAAEA
+AAFGu
+AAB
+
+AAAb2           6 Martin                        0
+GAAEA
+AAFGu
+AAC
+
+AAAb2           7 Kurt                         20
+GAAEA
+AAFGu
+AAD
+
+AAAb2           8 Andrea                      700
+GAAEA
+AAFGu
+AAE
+
+AAAb2           9 Verena                      900
+GAAEA
+AAFGu
+AAF
+
+AAAb2           2 Susi                        400
+GAAEA
+AAFGu
+AAG
+
+AAAb2           3 Hans                        200
+GAAEA
+AAFGu
+AAH
+
+AAAb2           4 Werner                     -300
+GAAEA
+AAFGu
+AAI
+
+AAAb2          10 Marion                      200
+GAAEA
+AAFGu
+AAJ
+
+
+ 10 rows selected
+
+
+# ██████
+#      ██
+#  █████
+#      ██
+# ██████
+
+ROWID CUSTOMER_ID FIRST_NAME              BALANCE
+----- ----------- -------------------- ----------
+AAAb2           1 Fritz                       300
+GAAEA
+AAFGu
+AAA
+
+AAAb2           5 Alex                       1000
+GAAEA
+AAFGu
+AAB
+
+AAAb2           6 Martin                        0
+GAAEA
+AAFGu
+AAC
+
+AAAb2           7 Kurt                         20
+GAAEA
+AAFGu
+AAD
+
+AAAb2           8 Andrea                      700
+GAAEA
+AAFGu
+AAE
+
+AAAb2           9 Verena                      900
+GAAEA
+AAFGu
+AAF
+
+AAAb2           2 Susi                        400
+GAAEA
+AAFGu
+AAG
+
+AAAb2           3 Hans                        200
+GAAEA
+AAFGu
+AAH
+
+AAAb2           4 Werner                     -300
+GAAEA
+AAFGu
+AAI
+
+AAAb2          10 Marion                      200
+GAAEA
+AAFGu
+AAJ
+
+
+ 10 rows selected
+
+
+ # ██████  ██████
+ #      ██ ██   ██
+ #  █████  ██████
+ #      ██ ██   ██
+ # ██████  ██████
+
+ CUSTOMER_ID FIRST_NAME              BALANCE
+ ----------- -------------------- ----------
+           1 Fritz                       300
+           5 Alex                       1000
+           6 Martin                        0
+           7 Kurt                         20
+           8 Andrea                      700
+           9 Verena                      900
+           2 Susi                        300
+           3 Hans                        200
+           4 Werner                     -200
+          10 Marion                      200
+
+  10 rows selected
+
+  CUSTOMER_ID_FROM CUSTOMER_ID_TO TRANSFER_DATE     AMOUNT
+  ---------------- -------------- ------------- ----------
+  2              4 10-SEP-15            100
+
+
+  # ██   ██
+  # ██   ██
+  # ███████
+  #      ██
+  #      ██
+
+  CUSTOMER_ID_FROM CUSTOMER_ID_TO TRANSFER_DATE     AMOUNT
+  ---------------- -------------- ------------- ----------
+  2              4 10-SEP-15            100
+  3              4 10-OCT-16             50
+  3              4 10-OCT-16             50
+
+
+  # ███████
+  # ██
+  # ███████
+  #      ██
+  # ███████
+
+  CUSTOMER_ID_FROM CUSTOMER_ID_TO TRANSFER_DATE     AMOUNT
+  ---------------- -------------- ------------- ----------
+  2              4 10-SEP-15            100
+  3              4 10-OCT-16             50
+  3              4 10-OCT-16             50
+  7              9 10-OCT-16            500
