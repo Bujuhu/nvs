@@ -6,7 +6,8 @@ title: Home
 <div class="subject-list">
   <h2 class="s-title subject-title">{{ subject | upcase }}</h2>
   <div>
-    {% for page in site.pages %}
+    {% assign orderedPages = site.pages | sort: 'date' %}
+    {% for page in orderedPages %}
       {% if page.subject == subject %}
       <div class="coco-item__header">
         {{ page.date }} <a href="{{ page.url }}" class="s-link">{{ page.title }}</a>
