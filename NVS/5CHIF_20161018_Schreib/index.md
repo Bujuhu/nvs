@@ -172,7 +172,9 @@ Es wurden noch keine Pakete durch den Tunnel verschickt
 ![](pt11.png)
 
 Der Computer mit der IP Adresse 192.168.3.3 wurde erfolgreich gepingt
+
 ## Step 3: Verify the tunnel after interesting traffic.
+
 ```
 show crypto ipsec sa
 ```
