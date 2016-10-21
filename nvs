@@ -10,22 +10,51 @@ smtpServer="smtp.mail.example:587"
 recipient="janesmith@mail.example"
 smtpPassword="password"
 
-#Source your custom Variables for the SMTP Server from another Script
-source nvs.local
 
+#Load temporary saved Variables
+if [ -f "/tmp/nvs.local" ]; then
+  source /tmp/nvs.local
+fi;
+
+
+#Change to the Base Directory of all Reports
 cd $reportsDirectory || exit
 
 reports=(*/)
-reportDir=${reports[-1]}
-report=${reportDir: 0: ${#reportDir}-1 }
 
-#Generate a new Report
+#Set the Report Variable to the latest reprt, if it doesn't exist yet.
+if [ -z "$report" ]; then
+  report=$(basename ${reports[-1]})
+fi;
+
+#Chhose another Report to set the Report Variable to.
+function setCurrentReport() {
+  echo "currently used:"
+  echo "$(tput bold) $report $(tput sgr0)"
+
+  for i in "${!reports[@]}"; do
+    echo "$i) $(basename ${reports[$i]})"
+  done
+  echo;
+  echo "Please select the report you want to use"
+  read -n 1 reportIndex
+
+  report=$(basename ${reports[$reportIndex]})
+
+  echo;
+  echo "You are now using:";
+  echo "$(tput bold) $report $(tput sgr0)";
+
+  echo  "report=$report" > /tmp/nvs.local
+}
+
+
+#Generate a new NVS Report
 function init() {
   reportDirectory="5CHIF_$(date "+%Y%m%d")_Schreib"
   mkdir $reportDirectory
   cd $reportDirectory || exit
-  echo
-"---
+echo "---
 title:
 layout: report
 date: $(date -I)
@@ -33,8 +62,9 @@ task:
 description: Erfüllung der Aufgabenstellung
 subject: nvs
 ---" > index.md
-}
+
   echo  "$reportsDirectory succsessfully initialized"
+}
 
 #Generate a Pdf for the latest Report
 function generatePdf() {
@@ -43,8 +73,20 @@ function generatePdf() {
 
 #Send the latest Report to the instructor
 function send() {
+  #Source your custom Variables for the SMTP Server from another Script
+  source nvs.local
+
   echo "" | mail -s "$report" -a $report/$report.pdf -r "$smtpSender" -S smtp="$smtpServer" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$smtpUser" -S smtp-auth-password="$smtpPassword" -S ssl-verify=ignore $recipient
   return
+}
+
+function screenshot {
+  scrot -s "$report/%Y%m%d_\$wx\$h.png" -e 'echo "![]($n)" | xclip -selection c'
+}
+
+function displayInfo() {
+  echo "Currently using:"
+  echo "$(tput bold) $report $(tput sgr0)"
 }
 
 case $1 in
@@ -54,6 +96,11 @@ case $1 in
     generatePdf;;
   'send')
     send;;
+  'set')
+    setCurrentReport;;
+  'scrot')
+    screenshot;;
   *)
-  printf "Usage: \n backup: Saves currently installed packages into %s \n restore: installs saved packages from %s" "$FILE" "$FILE"
+    displayInfo;;
+
 esac
