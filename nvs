@@ -21,17 +21,18 @@ report=${reportDir: 0: ${#reportDir}-1 }
 
 #Generate a new Report
 function init() {
-  reportsDirectory="5CHIF_$(date "+%Y%m%d")_Schreib"
-  echo $reportsDirectory
-  cd $reportsDirectory || exit
-  echo "---
-  title:
-  layout: report
-  date: $(date -I)
-  task:
-  description: Erfüllung der Aufgabenstellung
-  subject: nvs
-  ---" > index.md
+  reportDirectory="5CHIF_$(date "+%Y%m%d")_Schreib"
+  mkdir $reportDirectory
+  cd $reportDirectory || exit
+  echo
+"---
+title:
+layout: report
+date: $(date -I)
+task:
+description: Erfüllung der Aufgabenstellung
+subject: nvs
+---" > index.md
 }
   echo  "$reportsDirectory succsessfully initialized"
 
