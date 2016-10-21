@@ -25,3 +25,4 @@ exclude:
 subjects:
   - nvs
   - dbi
+  - dbi resch
