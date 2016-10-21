@@ -71,6 +71,7 @@ match address 110
 ```
 
 *Die eingegebenen Kommandos in Schritt 4 und 5*
+
 ![](pt5.png)
 
 ## Step 6: Configure the crypto map on the outgoing interface
@@ -143,6 +144,7 @@ exit
 ```
 
 *Die eingegebenen Kommandos in den Schritten 2 bis 4*
+
 ![](pt8.png)
 
 ## Step 5: Configure the crypto map on the outgoing interface
@@ -150,17 +152,23 @@ exit
 interface s0/0/1
 crypto map VPN-MAP
 ```
+
 ![](pt9.png)
 
 # Part 3: Verify the IPsec VPN
+
 ## Step 1: Verify the tunnel prior to interesting traffic.
+
 ```
 show crypto ipsec sa
 ```
+
 ![](pt10.png)
 
 Es wurden noch keine Pakete durch den Tunnel verschickt
+
 ## Step 2: Create interesting traffic.
+
 ![](pt11.png)
 
 Der Computer mit der IP Adresse 192.168.3.3 wurde erfolgreich gepingt
@@ -168,16 +176,19 @@ Der Computer mit der IP Adresse 192.168.3.3 wurde erfolgreich gepingt
 ```
 show crypto ipsec sa
 ```
+
 ![](pt12.png)
 
 Es wurden verschlüsselte Pakete geloggt.
+
 ## Step 4: Create uninteresting traffic.
 
 ![](pt13.png)
 
 Der Computer mit der IP Adresse 192.168.2.3 wurde erfolgreich gepingt
+
 ## Step 5: Verify the tunnel.
 
 ![](pt14.png)
 
-Die anzahl der verschlüsselten Pakete hat sich nicht erhöht
+Die Anzahl der verschlüsselten Pakete hat sich nicht erhöht
