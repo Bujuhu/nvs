@@ -74,7 +74,9 @@ function generatePdf() {
 #Send the latest Report to the instructor
 function send() {
   #Source your custom Variables for the SMTP Server from another Script
-  source nvs.local
+  if [ -f "nvs.local" ]; then
+    source nvs.local
+  fi;
 
   echo "" | mail -s "$report" -a $report/$report.pdf -r "$smtpSender" -S smtp="$smtpServer" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$smtpUser" -S smtp-auth-password="$smtpPassword" -S ssl-verify=ignore $recipient
   return
