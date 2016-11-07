@@ -10,19 +10,17 @@ subject: dbi
 Create a new tablespace
 
 ```sql
-create smallfile tablespace "shop_schreib" DATAFILE
-'/home/oracle/app/oracle/oradata/orcl/shop_schreib1.dbf' size 200M autoextend on next 100M maxsize 300M,
-'/home/oracle/app/oracle/oradata/orcl/shop_schreib2.dbf' size 100m logging extent management local segment space management auto
+CREATE SMALLFILE TABLESPACE "SHOP_SCHREIB" DATAFILE '/home/oracle/app/oracle/oradata/orcl/shop_scheib1' SIZE 200M AUTOEXTEND ON NEXT 10M MAXSIZE 300M , '/home/oracle/app/oracle/oradata/orcl/shop_schreib2' SIZE 100M LOGGING EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO
 
 ```
 
 Create a new user
 
 ```sql
-create user "SCHREIB" profile "DEFAULT" identified by "pass" default tablespace "shop_schreib" temporary tablespace "temp" account unlock
-grant unlimited tablespace to "SCHREIB"
-grant "CONNECT" to "SCHREIB"
-grant "RESOURCE" to "SCHREIB";
+CREATE USER "SCHREIB" PROFILE "DEFAULT" IDENTIFIED BY "*******" DEFAULT TABLESPACE "SHOP_SCHREIB" TEMPORARY TABLESPACE "TEMP" ACCOUNT UNLOCK
+GRANT UNLIMITED TABLESPACE TO "SCHREIB"
+GRANT "CONNECT" TO "SCHREIB"
+GRANT "RESOURCE" TO "SCHREIB"
 ```
 
 Create the table and insert some lines:
@@ -33,13 +31,31 @@ CREATE TABLE schreib.product
 product_id INTEGER PRIMARY KEY,
 product_name VARCHAR2(20),
 product_price DECIMAL(10,2)
-)
+);
 
-insert into schreib.product values
-  (1, 'Brot', 2.49),
-  (2, 'Pizza', 5),
-  (3, 'Zahnpasta', 5)
+CREATE TABLE schreib.product
+(
+product_id INTEGER PRIMARY KEY,
+product_name VARCHAR2(20),
+product_price DECIMAL(10,2)
+);
+
+insert into schreib.product values (1, 'Brot', 2.49);
+insert into schreib.product values  (2, 'Pizza', 5);
+insert into schreib.product values  (3, 'Zahnpasta', 5);
 
 ```
+
+![](scrot.png)
+
+![](scrot1.png)
+
+![](scrot2.png)
+
+![](scrot3.png)
+
+![](scrot4.png)
+
+![](scrot5.png)
 
 ![](scrot.png)
