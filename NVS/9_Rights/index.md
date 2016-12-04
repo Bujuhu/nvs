@@ -1,9 +1,9 @@
-12---
-title: 9 Rights
+---
+title: Oracle 1.9 Index
 layout: report
-date: 2016-11-28
-task: Rights Uebung_001
-taskHref: http://griesmayer.com/?menu=Oracle&semester=Semester_3&topic=06_Rights
+date: 2016-12-04
+task: Index Uebung_001
+taskHref: http://griesmayer.com/?menu=Oracle&semester=Semester_3&topic=09_Index
 subject: dbi
 ---
 

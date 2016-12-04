@@ -98,3 +98,5 @@ insert into schreib.product values
 # Test the commands
 
 As long as no commit statement is executed, no changees are visible for the other user.
+
+*Like last time, unneccesary to document, since we're already late for this one*

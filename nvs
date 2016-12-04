@@ -30,10 +30,14 @@ fi;
 #Chhose another Report to set the Report Variable to.
 function setCurrentReport() {
   echo "currently used:"
-  echo "$(tput bold) $report $(tput sgr0)"
+  echo "$(tput bold)$report $(tput sgr0)"
 
   for i in "${!reports[@]}"; do
-    echo "$i) $(basename ${reports[$i]})"
+    if [ "$report" = "$(basename ${reports[$i]})" ]; then
+      echo "$(tput bold)$i) $(basename ${reports[$i]}) $(tput sgr0)"
+    else
+      echo "$i) $(basename ${reports[$i]})"
+    fi
   done
   echo;
   echo "Please select the report you want to use"
