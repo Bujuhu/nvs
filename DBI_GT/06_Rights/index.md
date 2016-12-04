@@ -1,7 +1,7 @@
 ---
-title: 6 Rights
+title: Oracle 1.6 Rights
 layout: report
-date: 2016-11-07
+date: 2016-12-01
 task: Rights Uebung_001
 taskHref: http://griesmayer.com/?menu=Oracle&semester=Semester_3&topic=06_Rights
 subject: dbi

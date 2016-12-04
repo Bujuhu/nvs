@@ -1,8 +1,8 @@
 ---
-title: 4 Processes
+title: Oracle 1.4 Processes
 layout: report
-date: 2016-10-10
-task: Processes Uebung_001
+date: 2016-10-11
+task: Oracle 1_4
 taskHref: http://griesmayer.com/?menu=Oracle&semester=Semester_3&topic=04_Processes
 subject: dbi
 ---

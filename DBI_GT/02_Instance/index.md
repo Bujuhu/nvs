@@ -1,7 +1,7 @@
 ---
-title: 2 Instance
+title: Oracle 1.2 Instance
 layout: report
-date: 2016-10-10
+date: 2016-10-09
 task: 02_Instance Uebung_001
 taskHref: http://griesmayer.com/?menu=Oracle&semester=Semester_3&topic=02_Instance
 subject: dbi
