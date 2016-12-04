@@ -93,7 +93,7 @@ insert into schreib.product values
 
 ## Create User Zhang
 
-*The process of user creation is documented in* [6_Rigts](6_Rights)
+*The process of user creation is documented in* [6_Rights](06_Rights)
 
 # Test the commands
 
