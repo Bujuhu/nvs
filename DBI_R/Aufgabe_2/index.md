@@ -1,5 +1,5 @@
 ---
-title: Aufgabe 2
+title: 2 Cursors
 layout: report
 date: 2016-10-18
 task: Aufgabe 2 (Email)
