@@ -1,5 +1,5 @@
 ---
-title: PT 1.1.1.2 & 1.2.3.6
+title: Troubleshooting
 layout: report
 date: 2016-11-28
 task: Packettracer Übungen 1.1.1.2 & 1.2.3.6
@@ -8,7 +8,9 @@ subject: nvs
 ---
 
 # Packet Tracer 1.1.1.2
+
 ## Part 1
+
 ### Step 1 - Send a Ping from one end to the Network to the other end.
 
 Pinging PC3 (10.1.0.2) from PC1
