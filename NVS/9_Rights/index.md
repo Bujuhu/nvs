@@ -111,10 +111,87 @@ INSERT INTO products VALUES (11, ' Knackwurst', 'sausage', 1.8);
 
 ![](20161128_503x283.png)
 
-Data Model in SQL Develper Data Modeler
+The Data Model was already created in [6_Rights](../06_Rights)
 
-![](20161128_1008x189.png)
+## Fill the Product Table with 10.000 Lines
 
-Apply the Model to the Database
+### Generate Testdata using Libreoffice
 
-## Fill the Product Table with 10000 Lines
+Excerpt
+
+```csv
+1,1,58.77
+2,2,54.99
+3,3,0.61
+4,4,51
+5,5,28.42
+6,6,67.6
+7,7,34.75
+8,8,66.32
+9,9,46.74
+10,10,5.97
+11,11,45.64
+12,12,68.5
+13,13,63.56
+14,14,44.68
+15,15,51.18
+16,16,32.17
+17,17,56.77
+18,18,85.05
+19,19,59.62
+20,20,44.49
+21,21,45.41
+22,22,15.79
+23,23,8.12
+24,24,63.69
+25,25,56.46
+26,26,39.95
+
+```
+
+### Import the Data
+
+![](20161212_642x475.png)
+
+![](20161212_421x580.png)
+
+### Create additional Tables, insert Data and check the time
+
+```sql
+CREATE TABLE myshop1.product_noindex(
+  product_id INTEGER PRIMARY KEY,
+  product_name VARCHAR(20),
+  product_price DECIMAL(6,2)
+);
+
+
+CREATE TABLE myshop1.product_btree(
+  product_id INTEGER PRIMARY KEY,
+  product_name VARCHAR(20),
+  product_price DECIMAL(6,2)
+);
+
+Create INDEX idx_btree on product_btree (product_price);
+commit;
+
+-- Flush
+DELETE FROM product_noindex;
+COMMIT;
+
+insert into myshop1.product_noindex select * from myshop.product;
+
+select systimestamp from dual;
+
+-- Flush
+DELETE FROM myshop1.product_btree;
+COMMIT;
+
+insert into myshop1.product_btree select * from myshop1.product;
+select systimestamp from dual;
+```
+
+![](screenshot.png)
+
+NoIndex duartion: **0.5 seconds**
+
+B-Tree duration: **1.4 seconds**
