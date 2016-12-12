@@ -7,10 +7,13 @@ description: Erfüllung der Aufgabenstellung
 subject: nvs
 ---
 # Battleship 3
+
 ## Ersten Commit ausführen
+
 Der erste Commit des Git Repositories mit den standard Meteor Projekt dateien wird erstellt.
 
 Folgende Kommandos sind dazu notwendig:
+
 ```bash
 git add .
 #Bereitet alle dirty (nicht commited) Files im Ordner und allen unterordnern zum Commit vor
@@ -18,6 +21,7 @@ git add .
 git commit -m "Initial Commit"
 #Führt den Commit durch mit der Bezeichnung "Initial Commit" durch
 ```
+
 ### Ausführung
 
 ![](git1.png)

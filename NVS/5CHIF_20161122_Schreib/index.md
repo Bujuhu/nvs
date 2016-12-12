@@ -1,12 +1,12 @@
 ---
-title: Battleship 3
+title: Battleship 4
 layout: report
 date: 2016-11-22
 task: Am NVS Projekt weiterarbeiten
 description: Erfüllung der Aufgabenstellung
 subject: nvs
 ---
-# Battleship 3
+# Battleship 4
 Im laufe dieser Stunde wird eine "statische" Homepage erstellt, auf dieser Nutzer informationen zum Spiel erhalten, und das Spiel starten können wird
 
 Dazu werden die vorhanden Dokumente `client/main.html`, `client/main.css` und `client/main.js` modifiziert.
