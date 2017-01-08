@@ -41,7 +41,7 @@ function setCurrentReport() {
   done
   echo;
   echo "Please select the report you want to use"
-  read -n 1 reportIndex
+  read reportIndex
 
   report=$(basename ${reports[$reportIndex]})
 
