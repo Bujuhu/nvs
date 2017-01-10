@@ -10,8 +10,8 @@ subject: nvs
 
 ## Arbeitszeit
 
-**Julian Palmanshofer** 17 Stundedn
-**Juri Schreib** 23 Stunden
+- **Julian Palmanshofer** 17 Stunden
+- **Juri Schreib** 23 Stunden
 
 Ein Großteil der Zeit waren wir damit beschäftigt, das Meteor Framework kennen zu lernen und uns mit den Best Practices vertraut zu machen.
 
@@ -24,7 +24,7 @@ Ein Großteil der Zeit waren wir damit beschäftigt, das Meteor Framework kennen
 **Juri Schreib**
 - Serverseitige Entwickung
 - Programmlogik
-- Client / Server SChnitstelle
+- Client / Server Schnitstelle
 
 
 
