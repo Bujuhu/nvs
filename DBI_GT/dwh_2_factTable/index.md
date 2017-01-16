@@ -8,6 +8,7 @@ subject: dbi
 ---
 
 ## Products
+
 | Key | name | type
 | --|--
 | PK | Product_uid | Integer
@@ -34,6 +35,7 @@ Aufsummierbare Werte (Bsp.):
 
 
 ## Bill
+
 | Key | name | type
 | -- |
 | PK | First_name | varchar(255)

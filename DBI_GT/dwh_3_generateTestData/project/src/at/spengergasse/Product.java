@@ -114,34 +114,34 @@ public class Product {
 || activated | boolean
 || repairs | integer
      */
-            return  "PRODUCT_UID,PRODUCT_SERIES,PRODUCT_CATEGORY,INSURANCE_PLAN,NAME,ACTIVATION_DATE,ITERATION,INSURANCE_YEARS,INSURANCE_DETAILS,PRODUICT_SOLD,PRICE,ACTIVATED,REPAIRS";
+            return  "PRODUCT_UID\tPRODUCT_SERIES\tPRODUCT_CATEGORY\tINSURANCE_PLAN\tNAME\tACTIVATION_DATE\tITERATION\tINSURANCE_YEARS\tINSURANCE_DETAILS\tPRODUICT_SOLD\tPRICE\tACTIVATED\tREPAIRS";
     }
     public String getCSVLine() {
      return new StringBuilder()
              .append(productUid)
-             .append(",")
+             .append("\t")
              .append(productSeries)
-             .append(",")
+             .append("\t")
              .append(productCategory)
-             .append(",")
+             .append("\t")
              .append(insurancePlan)
-             .append(",")
+             .append("\t")
              .append(name)
-             .append(",")
+             .append("\t")
              .append(date)
-             .append(",")
+             .append("\t")
              .append(iteration)
-             .append(",")
+             .append("\t")
              .append(insuranceYears)
-             .append(",")
+             .append("\t")
              .append(insuranceDetaails)
-             .append(",")
+             .append("\t")
              .append(productsSold)
-             .append(",")
+             .append("\t")
              .append(price)
-             .append(",")
+             .append("\t")
              .append(activated)
-             .append(",")
+             .append("\t")
              .append(repairs).toString();
     }
 }
