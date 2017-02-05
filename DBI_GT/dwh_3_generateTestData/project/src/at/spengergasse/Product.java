@@ -100,26 +100,25 @@ public class Product {
             /*
 | Key | name | type
 | --|--
-| PK | Product_uid | Integer
 | PK | Product_series | Integer
 | PK | Product_category | Integer
 | PK | Insurance_plan | Integer
 || Name | Varchar(255)
 || product_activation_date | date
-|| iteration | Integer
+|| warrenty_years | integer
 || insurance_years | integer
-|| insurance_details | varchar(4095)
+|| sold_date | date
 || products_sold | integer
-|| price | decimal (7,2)
+|| product_price | decimal (7,2)
+|| insurance_price | decimal(7,2)
 || activated | boolean
 || repairs | integer
+|| repair_cost | price
      */
-            return  "PRODUCT_UID\tPRODUCT_SERIES\tPRODUCT_CATEGORY\tINSURANCE_PLAN\tNAME\tACTIVATION_DATE\tITERATION\tINSURANCE_YEARS\tINSURANCE_DETAILS\tPRODUICT_SOLD\tPRICE\tACTIVATED\tREPAIRS";
+            return  "PRODUCT_SERIES\tPRODUCT_CATEGORY\tINSURANCE_PLAN\tNAME\tACTIVATION_DATE\twarrenty_years\tINSURANCE_YEARS\tSOLD_DATE\tPRODUICT_SOLD\tPRODUCT_PRICE\tINSURANCE_PRICE\tACTIVATED\tREPAIRS\tRepair_cost";
     }
     public String getCSVLine() {
      return new StringBuilder()
-             .append(productUid)
-             .append("\t")
              .append(productSeries)
              .append("\t")
              .append(productCategory)
@@ -128,20 +127,24 @@ public class Product {
              .append("\t")
              .append(name)
              .append("\t")
-             .append(date)
-             .append("\t")
-             .append(iteration)
+             .append(new Date((int)Math.random() * 16 + 2000, (int)Math.random() * 12, (int)Math.random() * 28))
              .append("\t")
              .append(insuranceYears)
              .append("\t")
-             .append(insuranceDetaails)
+             .append(insuranceYears + 6)
+             .append("\t")
+             .append(new Date((int)Math.random() * 16 + 2000, (int)Math.random() * 12, (int)Math.random() * 28))
              .append("\t")
              .append(productsSold)
              .append("\t")
              .append(price)
              .append("\t")
+             .append(price * 1.2)
+             .append("\t")
              .append(activated)
              .append("\t")
-             .append(repairs).toString();
+             .append(repairs)
+             .append(price * 2)
+             .append("\t").toString();
     }
 }

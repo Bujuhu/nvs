@@ -9,21 +9,22 @@ subject: dbi
 
 ## Products
 
-| Key | name | type
-| --|--
-| PK | Product_uid | Integer
-| PK | Product_series | Integer
-| PK | Product_category | Integer
-| PK | Insurance_plan | Integer
-|| Name | Varchar(255)
-|| product_activation_date | date
-|| iteration | Integer
-|| insurance_years | integer
-|| insurance_details | varchar(4095)
-|| products_sold | integer
-|| price | decimal (7,2)
-|| activated | boolean
-|| repairs | integer
+| Key | name             | type
+| --- | ---------------- |
+| PK  | Product_series   | Integer
+| PK  | Product_category | Integer
+| PK  | Insurance_plan   | Integer
+|     | Name             | Varchar(255)
+|     | activation_date  | date
+|     | warrenty_years   | integer
+|     | insurance_years  | integer
+|     | sold_date        | date
+|     | products_sold    | integer
+|     | product_price    | decimal (7,2)
+|     | insurance_price  | decimal(7,2)
+|     | activated        | boolean
+|     | repairs          | integer
+|     | repair_cost      | price
 
 Aufsummierbare Werte (Bsp.):
 

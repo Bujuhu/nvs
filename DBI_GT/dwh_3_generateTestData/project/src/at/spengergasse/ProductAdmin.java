@@ -10,6 +10,7 @@ public class ProductAdmin {
     private int month;
     private int day;
     private int number_of_files;
+    private int datalines = 0;
 
     public ProductAdmin(int year, int month, int day, int number_of_files) {
         for(int i = 0; i < number_of_files; i++) {
@@ -19,9 +20,17 @@ public class ProductAdmin {
                 FileOutputStream fileOs = new FileOutputStream("products_" + year + month + currentDay + ".txt", true);
                 PrintStream printOs = new PrintStream(fileOs);
                 printOs.println(Product.getCSVHEADER());
-                for(int j = 0; j < 12000; j++) {
-                    printOs.println(new Product(i * 10 + j, i * 10 + j).getCSVLine());
+                for(int j = 0; j < 12142; j++) {
+                    if(Math.random() > 0.2) {
+                        printOs.println(new Product(i * 10 + j, i * 10 + j).getCSVLine());
+                    }
+                    else {
+                        printOs.println(" ");
+                    }
+                    datalines++;
                 }
+                printOs.println("---EOF---");
+                printOs.println("Lines: " + datalines);
 
                 printOs.flush();
                 printOs.close();
