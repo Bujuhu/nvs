@@ -3,7 +3,6 @@ package at.spengergasse;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.lang.reflect.Executable;
 
 public class ProductAdmin {
     private int year;
