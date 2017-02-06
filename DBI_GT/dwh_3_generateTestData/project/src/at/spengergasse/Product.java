@@ -33,7 +33,7 @@ public class Product {
     private String insuranceDetaails;
     private int productsSold;
     private double price;
-    private boolean activated;
+    private String activated;
     private int repairs;
 
     public Product(int uid, int series) {
@@ -90,7 +90,12 @@ public class Product {
         this.price =  Math.round(Math.random()* 5000);
     }
     public void set_activated() {
-        this.activated =  Math.random() > 0.5;
+        if(Math.random() > 0.5) {
+            this.activated = "1";
+        }
+        else {
+            this.activated = "0";
+        }
     }
     public void set_repairs() {
         this.repairs =  Math.round(Math.round(Math.random()* 10));
@@ -127,13 +132,13 @@ public class Product {
              .append("\t")
              .append(name)
              .append("\t")
-             .append(new Date((int)Math.random() * 16 + 2000, (int)Math.random() * 12, (int)Math.random() * 28))
+             .append("2000-1-1")
              .append("\t")
              .append(insuranceYears)
              .append("\t")
              .append(insuranceYears + 6)
              .append("\t")
-             .append(new Date((int)Math.random() * 16 + 2000, (int)Math.random() * 12, (int)Math.random() * 28))
+             .append("2000-1-1")
              .append("\t")
              .append(productsSold)
              .append("\t")
@@ -144,6 +149,7 @@ public class Product {
              .append(activated)
              .append("\t")
              .append(repairs)
+             .append("\t")
              .append(price * 2)
              .append("\t").toString();
     }
