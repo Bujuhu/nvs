@@ -7,6 +7,14 @@ subject: dbi resch
 
 # Schauts auch auf Kloiber seinen Zettel (in den Anhängen)
 
+# Snippets (zum Zusammen kopieren)
+
+## Jahr von Datum
+
+```sql
+extract(year from current_timestamp)
+```
+
 # Testfragen
 
 ### Schreiben Sie eine Prozedur die die Email Adresse eines Mitarbeiters (falls leer) ändert auf <Familienname>@<Department_Name>.at
@@ -397,7 +405,7 @@ BEGIN
 END;
 ```
 
-### Schreiben sie einen Trigger, der sichser stellt, der die Email Adresse eines Mitarbeiters (beim Insert und falls leer) ändert auf <Vorname>.<Familienname>@<Department_Name>
+### Schreiben sie einen Trigger, der sichser stellt, der die Email Adresse eines Mitarbeiters (beim Insert und falls leer) ändert auf \<Vorname>.\<Familienname>@\<Department_Name\>
 
 *Lösung von Juri Schreib*
 
@@ -426,3 +434,104 @@ END;
 ```
 
 ### Erstellen Sie eine Prozedur die einen neuen Mitarbeter anlegne kann bzw. einen Jobwechsel eines bestehnden Mitarbeiters durchführen kann
+
+### Implementieren sie ein Trigger, der sicherstellt das ein Mitarbeiter genau so viel verdient, wie das Max_Salaray seiner Job_Id
+
+```sql
+CREATE OR REPLACE TRIGGER check_max_salaray
+BEFORE INSERT ON employees
+v_max_salary jobs.max_salary%type;
+BEGIN
+
+  if new.job_id is null then
+    RAISE_APPLICATION_ERROR(-20001, "job_id should be defined");
+  end if;
+  if new.salary is null then
+    RAISE_APPLICATION_ERROR(-20001, "Salary should be defined");
+  end if;
+
+  select max_salary
+  from jobs
+  into v_max_salary
+  where new.job_id = job_id;
+
+  if v_max_salary is null or v_max_salary%rowxount > 1 then
+      RAISE_APPLICATION_ERROR(-20001, "Could not retrive the max salaray for the job id" || job_id);
+
+  if v_max_salary is not new.salary then
+    RAISE_APPLICATION_ERROR(-20001, "max_salary is " || new.salary || ", but should be " || v_max_salary);
+  end if;
+
+END;
+
+ALTER TRIGGER check_max_salaray DISABLE;
+```
+
+# Übungsbeispiele (von Markus)
+
+### Erhöhen Sie das Einkommen der Mitarbeiter 110 wie folgt:
+- die Firmenzugehörigkeit ist mehr als 7 Jahre -> 25%
+- die Firmenzugehörigkeit ist mehr als 4 Jahre -> 12%
+- in jedem anderen Fall: -> 9%
+
+```sql
+create or replace PROCEDURE inc_salary AS
+  v_salary employees.salary%type;
+  v_hire_date employees.hire_date%type;
+  v_hire_age Number;
+
+
+BEGIN
+  select salary
+  into v_salary
+  from employees
+  where employee_id = 110;
+
+  if v_salray is null then
+    RAISE_APPLICATION_ERROR(-20001, 'salry must not be null');
+  end if;
+
+  select hire_date
+  into v_hire_date
+  from employees
+  where employee_id = 110;
+
+  if v_hire_date is null then
+    RAISE_APPLICATION_ERROR(-20002, 'hire_date must not be null');
+  end if;
+
+  v_hire_age := extract(year from current_timestamp) - extract(year from v_hire_date);
+
+
+
+  if v_hire_age > 7 then
+  update employees
+  set salary = v_salary * 1.25
+  where employee_id = 110;
+  elsif v_hire_age > 4 then
+  update employees
+  set salary = v_salary * 1.12
+  where employee_id = 110;
+  else
+  update employees
+  set salary = v_salary * 1.07
+  where employee_id = 110;
+  end if;
+EXCEPTION
+when OTHERS
+if v_salray is null then
+  RAISE_APPLICATION_ERROR(-20420, 'internal server error');
+end if;
+END;
+
+-- Test Case
+
+select salaray
+from employees
+where employee_id = 110
+
+-- Dann die Prozdur durchlaufen
+-- Und prüfen ob sich der Betrag erhöht hat
+
+
+```
