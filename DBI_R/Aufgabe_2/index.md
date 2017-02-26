@@ -35,27 +35,28 @@ END A2_1;
 Zeigen Sie den 2. bis zum 9 Mitarbeiter in der Mitarbeiter Tabelle an.
 
 ```sql
-CREATE OR REPLACE PROCEDURE A2_2 AS
+create or replace
+procedure A2_2 as
 
-  cursor employee_cur is
-    select FIRST_NAME, LAST_NAME
-    from employees
-    where rownum between 2 and 9;
+cursor employee_cur is
+  select *
+  from (
+    select first_name, last_name, rownum as row_number
+    from employees)
+  where row_number between 2 and 9;
 
   v_employee employee_cur%ROWTYPE;
 
-BEGIN
-  OPEN employee_cur;
+begin
+open employee_cur;
+  loop
+    fetch employee_cur into v_employee;
+    exit when employee_cur%notfound;
 
-  LOOP
-    FETCH employee_cur INTO v_employee;
-    EXIT WHEN employee_cur%NOTFOUND;
-
-    DBMS_OUTPUT.put_line(v_employee.FIRST_NAME || ' ' || v_employee.LAST_NAME );
-
-  END LOOP;
-  CLOSE employee_cur;
-END A2_2;
+   DBMS_OUTPUT.put_line(v_employee.first_name || ' ' || v_employee.last_name );
+  end loop;
+  close employee_cur;
+end;
 ```
 
 ## 3
