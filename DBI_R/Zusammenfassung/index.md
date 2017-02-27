@@ -413,6 +413,7 @@ END;
 create or replace TRIGGER test2
 AFTER INSERT ON EMPLOYEES FOR EACH ROW
 DECLARE
+pragma autonomous_transaction;
   v_employee employees%rowtype;
   v_dep_name departments.department_name%type;
 BEGIN
