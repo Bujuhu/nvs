@@ -2,14 +2,7 @@
 
 reportsDirectory=$HOME/Sync/Projects/nvs/NVS
 
-#Email settings
-#Either change these default values to your Smtp Server or source them from another script using the source command.
-smtpSender="johnsmith@mail.example (John Smith)"
-smtpUser="johnsmith@mail.example"
-smtpServer="smtp.mail.example:587"
-recipient="janesmith@mail.example"
-smtpPassword="password"
-
+#Make sure to configure sendmail before using the send command
 
 #Load temporary saved Variables
 if [ -f "/tmp/nvs.local" ]; then
@@ -82,7 +75,7 @@ function send() {
     source nvs.local
   fi;
 
-  echo "" | mail -s "$report" -a $report/$report.pdf -r "$smtpSender" -S smtp="$smtpServer" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$smtpUser" -S smtp-auth-password="$smtpPassword" -S ssl-verify=ignore $recipient
+  echo "" | mail -s "$report" -a $report/$report.pdf $1
   return
 }
 
@@ -100,8 +93,8 @@ case $1 in
     init;;
   'gen')
     generatePdf;;
-  'send')
-    send;;
+  'send' )
+    send $2;;
   'set')
     setCurrentReport;;
   'scrot')
