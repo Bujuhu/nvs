@@ -7,7 +7,7 @@ description: Erfüllung der Aufgabenstellung
 subject: nvs
 ---
 
-Während dieser Übung werden die Betriebssysteme Linux Mint und Debian heruntergeladen.
+Während dieser Übung werden die Betriebssysteme Linux Mint und Ubuntu heruntergeladen.
 
 ## Backup
 
@@ -30,9 +30,9 @@ Backups werden auf allen Servern stündlich erstellt.
 
 Zu beginn werden nur 2 Betriebssysteme verwendet
 
-### Debian (Serverbetriebssystem)
+### Ubuntu (Serverbetriebssystem)
 
-Auf allen Unternehmensserven wird Debian Jessie 8.7 installiert. Folgende Eigenschaften begünstigen die Verwendung von Debian gegenüber anderen Betriebssystemen
+Auf allen Unternehmensserven wird Ubuntu 16.04 LTS installiert. Folgende Eigenschaften begünstigen die Verwendung von Ubuntu gegenüber anderen Betriebssystemen
 
 - Lange Updatecyclen (nur sicherheitsaktualisierungen werden sofort zur verfügung gestellt)
 - Aufwändiger Produkttestcyclus
