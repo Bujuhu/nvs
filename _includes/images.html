@@ -1,6 +1,9 @@
-{% for file in site.static_files %}
-  {% assign urlparts = file.path | split: "/" %}
-  {% if file.path contains include.path and file.extname == ".png" %}
-    <li><a href="{{ site.baseurl }}{{ file.path }}" class="s-link">{{ urlparts.last }}</a></li>
+{% assign collectionMeta = site.collections | where: "label", {{page.collection}} | first %}
+
+{% for file in collectionMeta.files %}
+{% assign path = include.path | split: "/"  %}
+{% assign filepath = file.path | split: "/" %}
+{% if filepath[2] == path[2] and file.extname == ".png" %}
+    <li><a href="{{ site.baseurl }}{{ file.path }}" class="s-link">{{ filepath.last }}</a></li>
   {% endif %}
 {% endfor %}

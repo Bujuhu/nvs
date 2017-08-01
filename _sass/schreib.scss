@@ -42,3 +42,24 @@ body {
     display: none;
   }
 }
+
+.infobox {
+  margin-top: 20px;
+  border-radius: 5px;
+}
+.infobox-text {
+  margin: 1em;
+}
+.infobox-button {
+  display: inline-block;
+  margin: 1em;
+  padding: 10px;
+  background-color: $backdrop;
+  border-radius: 5px;
+  border: 1px solid $backdrop;
+
+}
+
+.infobox-button:hover {
+  border: 1px solid $assertive;
+}

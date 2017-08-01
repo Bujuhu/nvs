@@ -11,11 +11,6 @@ github_username:  bujuhu
 # Build settings
 markdown: kramdown
 
-#Protcol Variables
-name: Juri Schreib
-class: 5CHIF
-reportTitle: Laborbericht
-
 exclude:
   - node_modules
   - CNAME
@@ -26,19 +21,45 @@ collections:
     short: NVS
     long: NVS Coufal 5CHIF 16/17
     output: true
-    permalink: /NVS/:name
   dbi_r:
     short: DBI
     long: DBI Resch 5CHIF 16/17
     output: true
-    permalink: /DBI_R/:name
   dbi_gt:
     short: DBI
     long: DBI Griesmayer 5CHIF 16/17
     output: true
-    permalink: /DBI_GT/:name
+  contributions:
+    short: Beiträge
+    long: Beiträge
+    output: true
 
-subjects:
-  - nvs
-  - dbi
-  - dbi resch
+defaults:
+  - scope:
+      path: ""
+      type: nvs
+    values:
+      layout: report
+      author: Juri Schreib
+      class: 5CHIF 16/17
+  - scope:
+      path: ""
+      type: dbi_r
+    values:
+      layout: report
+      author: Juri Schreib
+      class: 5CHIF 16/17
+  - scope:
+      path: ""
+      type: dbi_gt
+    values:
+      layout: report
+      author: Juri Schreib
+      class: 5CHIF 16/17
+  - scope:
+      path: ""
+      type: contributions
+    values:
+      layout: report
+      author: Anonym
+      class: Anonym
