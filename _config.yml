@@ -21,6 +21,22 @@ exclude:
   - CNAME
   - LICENSE
   - nvs
+collections:
+  nvs:
+    short: NVS
+    long: NVS Coufal 5CHIF 16/17
+    output: true
+    permalink: /NVS/:name
+  dbi_r:
+    short: DBI
+    long: DBI Resch 5CHIF 16/17
+    output: true
+    permalink: /DBI_R/:name
+  dbi_gt:
+    short: DBI
+    long: DBI Griesmayer 5CHIF 16/17
+    output: true
+    permalink: /DBI_GT/:name
 
 subjects:
   - nvs

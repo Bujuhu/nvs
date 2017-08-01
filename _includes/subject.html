@@ -1,0 +1,13 @@
+{% assign collectionMeta = site.collections | where: "label", {{include.collection}} | first %}
+{% assign collection = collectionMeta.docs %}
+<div class="subject-list">
+  <h2 class="s-title subject-title">{{ collectionMeta.long | upcase }}</h2>
+  <div>
+    {% assign orderedCollection = collection | sort: 'date' %}
+    {% for report in collection %}
+      <div class="coco-item__header">
+        {{ report.date | date_to_string }} <a href="{{ report.url }}" class="s-link">{{ report.title }}</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

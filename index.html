@@ -2,18 +2,7 @@
 layout: site
 title: Home
 ---
-{% for subject in site.subjects %}
-<div class="subject-list">
-  <h2 class="s-title subject-title">{{ subject | upcase }}</h2>
-  <div>
-    {% assign orderedPages = site.pages | sort: 'date' %}
-    {% for page in orderedPages %}
-      {% if page.subject == subject %}
-      <div class="coco-item__header">
-        {{ page.date }} <a href="{{ page.url }}" class="s-link">{{ page.title }}</a>
-      </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-{% endfor %}
+
+  {% include subject.html collection="nvs" %}
+  {% include subject.html collection="dbi_gt" %}
+  {% include subject.html collection="dbi_r" %}
