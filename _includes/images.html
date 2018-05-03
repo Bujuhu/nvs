@@ -3,7 +3,7 @@
 {% for file in collectionMeta.files %}
 {% assign path = include.path | split: "/"  %}
 {% assign filepath = file.path | split: "/" %}
-{% if filepath[2] == path[2] and file.extname == ".png" %}
-    <li><a href="{{ site.baseurl }}{{ file.path }}" class="s-link">{{ filepath.last }}</a></li>
+{% if filepath[1] == path[2] and file.extname == ".png" %}
+    <li><a href="{{ site.baseurl }}{{ filepath.last }}" class="s-link">{{ filepath.last }}</a></li>
   {% endif %}
 {% endfor %}
